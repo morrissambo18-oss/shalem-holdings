@@ -1,4 +1,4 @@
-import { useRef, useState } from 'react'
+import { useEffect, useRef, useState } from 'react'
 import Header from './components/Header'
 import Hero from './components/Hero'
 import QuoteForm from './components/QuoteForm'
@@ -7,6 +7,7 @@ import FaqSection from './components/FaqSection'
 import Footer from './components/Footer'
 import LegalPage from './components/LegalPage'
 import FeaturedWork from './components/FeaturedWork'
+import ProgressiveImage from './components/ProgressiveImage'
 import { getLegalType } from './utils/routing'
 import {
   ArrowRight,
@@ -17,6 +18,8 @@ import {
   Smartphone,
   Sparkles,
 } from './components/Icons'
+
+const baseUrl = import.meta.env.BASE_URL
 
 const whatsappUrl = "https://wa.me/27796207928?text=Hi%2C%20I'm%20interested%20in%20Shalem%20services"
 
@@ -29,6 +32,10 @@ const divisions = [
     description: 'Professional digital products designed around the way your business works and grows.',
     items: ['Websites & online stores', 'Applications & platforms', 'Custom systems & integrations'],
     cta: 'Start a project',
+    href: '#featured-work',
+    image: `${baseUrl}images/digital-solutions-hero.jpg`,
+    webp: `${baseUrl}images/digital-solutions-hero.webp`,
+    imageAlt: 'A professional reviewing a responsive digital product on a laptop and phone',
   },
   {
     id: 'technology',
@@ -38,6 +45,10 @@ const divisions = [
     description: 'Flexible home entertainment technology made for everyday South African households.',
     items: ['Shalém ConnectBox', 'TV Box solutions', 'Projectors & demonstrations'],
     cta: 'Explore products',
+    href: '#entertainment-technology',
+    image: `${baseUrl}images/entertainment-technology-hero.jpg`,
+    webp: `${baseUrl}images/entertainment-technology-hero.webp`,
+    imageAlt: 'A couple enjoying a modern home entertainment and projector setup',
   },
   {
     id: 'experiences',
@@ -47,6 +58,10 @@ const divisions = [
     description: 'Interactive experiences for celebrations, activations, families, and growing brands.',
     items: ['360 Photo Booth', 'Movie Night packages', 'Corporate & branded experiences'],
     cta: 'View experiences',
+    href: '#events-experiences',
+    image: `${baseUrl}images/events-experiences-hero.jpg`,
+    webp: `${baseUrl}images/events-experiences-hero.webp`,
+    imageAlt: 'Guests enjoying an elegant 360 photo booth experience',
   },
 ]
 
@@ -95,8 +110,53 @@ const experienceOfferings = [
 function App() {
   const [activeDivision, setActiveDivision] = useState('digital')
   const [selectedService, setSelectedService] = useState('')
+  const [showBackToTop, setShowBackToTop] = useState(false)
   const tabRefs = useRef([])
+  const divisionTouchStart = useRef(null)
+  const progressRef = useRef(null)
   const legalType = getLegalType(window.location.pathname, window.location.search)
+
+  useEffect(() => {
+    const updateScrollUI = () => {
+      const scrollableHeight = document.documentElement.scrollHeight - window.innerHeight
+      const progress = scrollableHeight > 0 ? window.scrollY / scrollableHeight : 0
+      progressRef.current?.style.setProperty('--scroll-progress', Math.min(progress, 1))
+      setShowBackToTop(window.scrollY > 900)
+    }
+
+    updateScrollUI()
+    window.addEventListener('scroll', updateScrollUI, { passive: true })
+    return () => window.removeEventListener('scroll', updateScrollUI)
+  }, [])
+
+  useEffect(() => {
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) return undefined
+
+    const elements = [
+      ...document.querySelectorAll(
+        'main > section:not(.hero), .division-card, .offering-card, .project-showcase, .founder-feature, .faq-list details',
+      ),
+    ]
+
+    elements.forEach((element, index) => {
+      element.classList.add('reveal-ready')
+      element.style.setProperty('--reveal-delay', `${(index % 4) * 55}ms`)
+    })
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (!entry.isIntersecting) return
+          entry.target.classList.add('is-visible')
+          observer.unobserve(entry.target)
+        })
+      },
+      { rootMargin: '0px 0px -8% 0px', threshold: 0.08 },
+    )
+
+    elements.forEach((element) => observer.observe(element))
+    return () => observer.disconnect()
+  }, [])
 
   const chooseService = (service) => {
     setSelectedService(service)
@@ -117,12 +177,36 @@ function App() {
     tabRefs.current[nextIndex]?.focus()
   }
 
+  const handleDivisionTouchStart = (event) => {
+    divisionTouchStart.current = event.touches[0]?.clientX ?? null
+  }
+
+  const handleDivisionTouchEnd = (event) => {
+    if (divisionTouchStart.current === null) return
+    const endX = event.changedTouches[0]?.clientX ?? divisionTouchStart.current
+    const distance = divisionTouchStart.current - endX
+    divisionTouchStart.current = null
+    if (Math.abs(distance) < 55) return
+
+    const currentIndex = divisions.findIndex((division) => division.id === activeDivision)
+    const direction = distance > 0 ? 1 : -1
+    const nextIndex = (currentIndex + direction + divisions.length) % divisions.length
+    setActiveDivision(divisions[nextIndex].id)
+  }
+
+  const selectedDivision = divisions.find((division) => division.id === activeDivision) ?? divisions[0]
+  const SelectedDivisionIcon = selectedDivision.icon
+  const selectedDivisionIndex = divisions.findIndex((division) => division.id === selectedDivision.id)
+
   if (legalType === 'privacy' || legalType === 'terms') {
     return <LegalPage type={legalType} />
   }
 
   return (
     <div className="site-shell">
+      <div className="scroll-progress" ref={progressRef} aria-hidden="true">
+        <span />
+      </div>
       <a className="skip-link" href="#main-content">
         Skip to main content
       </a>
@@ -143,95 +227,71 @@ function App() {
             </p>
           </div>
 
-          <div className="division-tabs" role="tablist" aria-label="Service divisions">
-            {divisions.map((division, index) => (
-              <button
-                key={division.id}
-                ref={(element) => {
-                  tabRefs.current[index] = element
-                }}
-                type="button"
-                role="tab"
-                id={`tab-${division.id}`}
-                aria-controls={`panel-${division.id}`}
-                aria-selected={activeDivision === division.id}
-                tabIndex={activeDivision === division.id ? 0 : -1}
-                onClick={() => setActiveDivision(division.id)}
-                onKeyDown={(event) => handleTabKeyDown(event, index)}
-              >
-                {division.title}
-              </button>
-            ))}
-          </div>
-
-          <div className="division-grid">
-            {divisions.map((division, index) => {
-              const Icon = division.icon
-              const active = activeDivision === division.id
-              return (
-                <article
-                  className={
-                    active
-                      ? `division-card division-card-${division.id} is-active`
-                      : `division-card division-card-${division.id}`
-                  }
-                  id={`panel-${division.id}`}
-                  role="tabpanel"
-                  aria-labelledby={`tab-${division.id}`}
+          <div
+            className={`division-explorer division-explorer-${selectedDivision.id}`}
+            onTouchStart={handleDivisionTouchStart}
+            onTouchEnd={handleDivisionTouchEnd}
+          >
+            <div className="division-tabs" role="tablist" aria-label="Service divisions">
+              {divisions.map((division, index) => (
+                <button
                   key={division.id}
+                  ref={(element) => {
+                    tabRefs.current[index] = element
+                  }}
+                  type="button"
+                  role="tab"
+                  id={`tab-${division.id}`}
+                  aria-controls="division-panel"
+                  aria-selected={activeDivision === division.id}
+                  tabIndex={activeDivision === division.id ? 0 : -1}
+                  onClick={() => setActiveDivision(division.id)}
+                  onKeyDown={(event) => handleTabKeyDown(event, index)}
                 >
-                  <span className="division-number">0{index + 1}</span>
-                  <Icon className="division-icon" />
-                  <p className="card-eyebrow">{division.eyebrow}</p>
-                  <h3>{division.title}</h3>
-                  <p>{division.description}</p>
-                  <ul>
-                    {division.items.map((item) => (
-                      <li key={item}>{item}</li>
-                    ))}
-                  </ul>
-                  <a
-                    href={
-                      division.id === 'digital'
-                        ? '#digital-solutions'
-                        : division.id === 'technology'
-                          ? '#entertainment-technology'
-                          : '#events-experiences'
-                    }
-                  >
-                    {division.cta} <ChevronRight />
-                  </a>
-                </article>
-              )
-            })}
-          </div>
-        </section>
+                  <span>0{index + 1}</span>
+                  {division.title}
+                </button>
+              ))}
+            </div>
 
-        <section className="section digital-section digital-intro" id="digital-solutions">
-          <div className="section-container digital-intro-layout">
-            <div className="digital-intro-marker">
-              <p className="eyebrow">Digital solutions</p>
-              <span aria-hidden="true">01</span>
-            </div>
-            <div className="digital-intro-copy">
-              <h2>Useful digital products built around how your business actually works.</h2>
-              <p>
-                From customer-facing websites to secure internal platforms, we design and build technology
-                with a clear purpose, a practical workflow, and room to grow.
-              </p>
-              <div className="digital-capabilities" aria-label="Digital capabilities">
-                <span>Websites</span>
-                <span>Online stores</span>
-                <span>Applications</span>
-                <span>Internal systems</span>
+            <article
+              className="division-explorer-panel"
+              id="division-panel"
+              role="tabpanel"
+              aria-labelledby={`tab-${selectedDivision.id}`}
+              aria-live="polite"
+              key={selectedDivision.id}
+            >
+              <div className="division-explorer-visual">
+                <ProgressiveImage
+                  src={selectedDivision.image}
+                  webpSrc={selectedDivision.webp}
+                  alt={selectedDivision.imageAlt}
+                  width="1849"
+                  height="902"
+                  loading="lazy"
+                  decoding="async"
+                />
+                <span className="division-explorer-count">0{selectedDivisionIndex + 1} / 03</span>
+                <span className="division-swipe-hint">Swipe to explore</span>
               </div>
-            </div>
-            <div className="digital-intro-art" aria-hidden="true">
-              <span>Build</span>
-              <span>Launch</span>
-              <span>Scale</span>
-              <i />
-            </div>
+              <div className="division-explorer-copy">
+                <span className="division-explorer-icon">
+                  <SelectedDivisionIcon />
+                </span>
+                <p className="card-eyebrow">{selectedDivision.eyebrow}</p>
+                <h3>{selectedDivision.title}</h3>
+                <p>{selectedDivision.description}</p>
+                <ul>
+                  {selectedDivision.items.map((item) => (
+                    <li key={item}>{item}</li>
+                  ))}
+                </ul>
+                <a className="button button-primary" href={selectedDivision.href}>
+                  {selectedDivision.cta} <ArrowRight />
+                </a>
+              </div>
+            </article>
           </div>
         </section>
 
@@ -260,8 +320,9 @@ function App() {
             </div>
 
             <figure className="division-media division-media-entertainment">
-              <img
-                src="/images/entertainment-technology-hero.jpg"
+              <ProgressiveImage
+                src={`${baseUrl}images/entertainment-technology-hero.jpg`}
+                webpSrc={`${baseUrl}images/entertainment-technology-hero.webp`}
                 alt="A couple enjoying a home projector and entertainment setup"
                 width="1823"
                 height="863"
@@ -320,8 +381,9 @@ function App() {
             </div>
 
             <figure className="division-media division-media-experiences">
-              <img
-                src="/images/events-experiences-hero.jpg"
+              <ProgressiveImage
+                src={`${baseUrl}images/events-experiences-hero.jpg`}
+                webpSrc={`${baseUrl}images/events-experiences-hero.webp`}
                 alt="Guests enjoying an elegant 360 photo booth experience"
                 width="1744"
                 height="902"
@@ -376,9 +438,12 @@ function App() {
                 Share a few details and we’ll prepare the conversation before you reach WhatsApp. No
                 commitment and no complicated brief required.
               </p>
-              <p className="quote-expectation">
-                You’ll receive clear next steps and a human response on WhatsApp.
-              </p>
+              <div className="confidence-cues" aria-label="Why contact Shalém">
+                <span>Registered South African company</span>
+                <span>Based in Soweto</span>
+                <span>Private internal system delivered</span>
+                <span>Human response on WhatsApp</span>
+              </div>
             </div>
 
             <QuoteForm selectedService={selectedService} onServiceChange={setSelectedService} />
@@ -394,6 +459,15 @@ function App() {
       </div>
 
       <Footer whatsappUrl={whatsappUrl} />
+
+      <button
+        className={showBackToTop ? 'back-to-top is-visible' : 'back-to-top'}
+        type="button"
+        aria-label="Back to top"
+        onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
+      >
+        <ArrowRight />
+      </button>
     </div>
   )
 }

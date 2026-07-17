@@ -1,6 +1,9 @@
 import { ArrowRight, MapPin } from './Icons'
+import ProgressiveImage from './ProgressiveImage'
 
 export default function AboutSection() {
+  const baseUrl = import.meta.env.BASE_URL
+
   return (
     <section className="about-section" id="about">
       <div className="section-container about-layout">
@@ -8,12 +11,8 @@ export default function AboutSection() {
           <p className="eyebrow">About Shalém Holdings</p>
           <h2>Local understanding. Practical ideas. One connected company.</h2>
           <p>
-            Shalém Holdings is a Soweto-based company bringing digital development, entertainment technology,
-            and event experiences together under one trusted brand.
-          </p>
-          <p>
-            We begin with the outcome you need, explain the options clearly, and shape the solution around
-            real people, real budgets, and real everyday use.
+            From our base in Diepkloof, we build practical services around the needs, budgets, and everyday
+            realities of the people and businesses we serve.
           </p>
           <div className="company-credentials" aria-label="Company registration details">
             <div>
@@ -62,8 +61,9 @@ export default function AboutSection() {
 
       <div className="section-container founder-feature">
         <figure className="founder-portrait">
-          <img
-            src="/people/themba-founder-portrait.jpg"
+          <ProgressiveImage
+            src={`${baseUrl}people/themba-founder-portrait.jpg`}
+            webpSrc={`${baseUrl}people/themba-founder-portrait.webp`}
             alt="Marc Themba Mbanyele, founder and CEO of Shalém Holdings"
             width="1024"
             height="1824"

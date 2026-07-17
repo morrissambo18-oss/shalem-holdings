@@ -12,6 +12,8 @@ const capabilities = [
 const technologies = ['Next.js', 'TypeScript', 'Supabase', 'PostgreSQL', 'Playwright']
 
 export default function FeaturedWork({ onChooseService }) {
+  const baseUrl = import.meta.env.BASE_URL
+
   return (
     <section className="section featured-work" id="featured-work">
       <div className="section-container">
@@ -36,7 +38,7 @@ export default function FeaturedWork({ onChooseService }) {
             </div>
             <div className="project-screen">
               <aside>
-                <img src="/projects/route-monitoring-logo.png" alt="Route Monitoring" />
+                <img src={`${baseUrl}projects/route-monitoring-logo.png`} alt="Route Monitoring" />
                 <span className="project-nav-line is-active" />
                 <span className="project-nav-line" />
                 <span className="project-nav-line" />

@@ -64,6 +64,7 @@ const termsSections = [
 ]
 
 export default function LegalPage({ type }) {
+  const baseUrl = import.meta.env.BASE_URL
   const isPrivacy = type === 'privacy'
   const title = isPrivacy ? 'Privacy Policy' : 'Website Terms'
   const sections = isPrivacy ? privacySections : termsSections
@@ -79,11 +80,11 @@ export default function LegalPage({ type }) {
   return (
     <div className="legal-shell">
       <header className="legal-header section-container">
-        <a className="brand" href="/" aria-label="Return to Shalém Holdings home">
-          <img src="/shalem-logo.png" alt="Shalém" />
+        <a className="brand" href={baseUrl} aria-label="Return to Shalém Holdings home">
+          <img src={`${baseUrl}shalem-logo.png`} alt="Shalém" />
           <span>Holdings</span>
         </a>
-        <a className="text-link" href="/">
+        <a className="text-link" href={baseUrl}>
           Back to website <ArrowRight />
         </a>
       </header>

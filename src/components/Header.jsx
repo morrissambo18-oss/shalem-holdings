@@ -2,11 +2,21 @@ import { useEffect, useRef, useState } from 'react'
 import { Menu, X } from './Icons'
 
 export default function Header({ whatsappUrl }) {
+  const baseUrl = import.meta.env.BASE_URL
   const [menuOpen, setMenuOpen] = useState(false)
   const [activeSection, setActiveSection] = useState('home')
+  const [scrolled, setScrolled] = useState(false)
   const menuButtonRef = useRef(null)
+  const headerRef = useRef(null)
 
   const closeMenu = () => setMenuOpen(false)
+
+  useEffect(() => {
+    const updateHeader = () => setScrolled(window.scrollY > 36)
+    updateHeader()
+    window.addEventListener('scroll', updateHeader, { passive: true })
+    return () => window.removeEventListener('scroll', updateHeader)
+  }, [])
 
   useEffect(() => {
     const handleKeyDown = (event) => {
@@ -17,6 +27,22 @@ export default function Header({ whatsappUrl }) {
     }
     document.addEventListener('keydown', handleKeyDown)
     return () => document.removeEventListener('keydown', handleKeyDown)
+  }, [menuOpen])
+
+  useEffect(() => {
+    if (!menuOpen) return undefined
+
+    const previousOverflow = document.body.style.overflow
+    const handleOutsidePress = (event) => {
+      if (!headerRef.current?.contains(event.target)) setMenuOpen(false)
+    }
+
+    document.body.style.overflow = 'hidden'
+    document.addEventListener('pointerdown', handleOutsidePress)
+    return () => {
+      document.body.style.overflow = previousOverflow
+      document.removeEventListener('pointerdown', handleOutsidePress)
+    }
   }, [menuOpen])
 
   useEffect(() => {
@@ -38,9 +64,9 @@ export default function Header({ whatsappUrl }) {
   const current = (section) => (activeSection === section ? 'location' : undefined)
 
   return (
-    <header className="site-header">
+    <header ref={headerRef} className={scrolled ? 'site-header is-scrolled' : 'site-header'}>
       <a className="brand" href="#home" aria-label="Shalém Holdings home" onClick={closeMenu}>
-        <img src="/shalem-logo.png" alt="Shalém" />
+        <img src={`${baseUrl}shalem-logo.png`} alt="Shalém" />
         <span>Holdings</span>
       </a>
       <button
