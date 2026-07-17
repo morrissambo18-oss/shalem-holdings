@@ -108,6 +108,11 @@ export default function LegalPage({ type }) {
           <section className="legal-contact">
             <h2>Contact Shalém Holdings</h2>
             <p>
+              Shalém Holdings (Pty) Ltd
+              <br />
+              Registration number: 2025/518721/07
+            </p>
+            <p>
               5235 Nongoma Road
               <br />
               Diepkloof, Soweto

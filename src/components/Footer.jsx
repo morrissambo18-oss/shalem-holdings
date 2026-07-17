@@ -27,10 +27,12 @@ export default function Footer({ whatsappUrl }) {
       </div>
       <div className="footer-legal">
         <h3>Information</h3>
+        <a href="#featured-work">Featured Work</a>
         <a href="/privacy">Privacy Policy</a>
         <a href="/terms">Website Terms</a>
       </div>
       <p className="copyright">© 2026 Shalém Holdings. All rights reserved.</p>
+      <p className="footer-registration">Shalém Holdings (Pty) Ltd · 2025/518721/07</p>
     </footer>
   )
 }

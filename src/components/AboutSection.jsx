@@ -15,28 +15,25 @@ export default function AboutSection() {
             We begin with the outcome you need, explain the options clearly, and shape the solution around
             real people, real budgets, and real everyday use.
           </p>
+          <div className="company-credentials" aria-label="Company registration details">
+            <div>
+              <span>Registered company</span>
+              <strong>Shalém Holdings (Pty) Ltd</strong>
+            </div>
+            <div>
+              <span>Registration number</span>
+              <strong>2025/518721/07</strong>
+            </div>
+            <div>
+              <span>Registered</span>
+              <strong>1 July 2025 · In Business</strong>
+            </div>
+          </div>
           <a className="text-link" href="#contact">
             Start a conversation <ArrowRight />
           </a>
         </div>
         <div className="about-details">
-          <div className="about-principles">
-            <article>
-              <span>01</span>
-              <h3>Practical solutions</h3>
-              <p>Useful products and experiences built around a clear purpose.</p>
-            </article>
-            <article>
-              <span>02</span>
-              <h3>Clear communication</h3>
-              <p>Simple explanations, agreed next steps, and fewer surprises.</p>
-            </article>
-            <article>
-              <span>03</span>
-              <h3>Connected service</h3>
-              <p>One team across technology, digital work, and experiences.</p>
-            </article>
-          </div>
           <address className="location-card">
             <div className="location-icon">
               <MapPin />
@@ -60,6 +57,46 @@ export default function AboutSection() {
               </a>
             </div>
           </address>
+        </div>
+      </div>
+
+      <div className="section-container founder-feature">
+        <figure className="founder-portrait">
+          <img
+            src="/people/themba-founder-portrait.jpg"
+            alt="Marc Themba Mbanyele, founder and CEO of Shalém Holdings"
+            width="1024"
+            height="1824"
+            loading="lazy"
+            decoding="async"
+          />
+          <figcaption>Soweto entrepreneur · Company founder</figcaption>
+        </figure>
+        <div className="founder-copy">
+          <p className="eyebrow">Founder story</p>
+          <p className="founder-name">Marc Themba Mbanyele</p>
+          <h2>Entrepreneurship rooted in Soweto and built around possibility.</h2>
+          <p className="founder-intro">
+            Marc Themba Mbanyele is the founder and CEO of Shalém Holdings, bringing together practical
+            technology, entertainment, and experiences under one connected company.
+          </p>
+          <p>
+            His entrepreneurial journey also includes founding Imbewu Yokuphila, a hiking company that brings
+            people together through outdoor experiences. Across both ventures, the focus is simple: create
+            useful opportunities, make memorable experiences possible, and build from the community outward.
+          </p>
+          <div className="founder-principle">
+            <span>Guiding idea</span>
+            <p>People first. Practical solutions. Opportunity created close to home.</p>
+          </div>
+          <div className="founder-roles" aria-label="Themba's roles">
+            <span>Founder & CEO · Shalém Holdings</span>
+            <span>Founder · Imbewu Yokuphila</span>
+            <span>Based in Soweto</span>
+          </div>
+          <a className="text-link" href="#contact">
+            Start a conversation <ArrowRight />
+          </a>
         </div>
       </div>
     </section>

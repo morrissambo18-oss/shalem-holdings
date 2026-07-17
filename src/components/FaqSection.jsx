@@ -6,16 +6,8 @@ const faqs = [
     'Choose the service you need, share a short description, and continue to WhatsApp. We’ll review the details with you before confirming scope, pricing, and timing.',
   ],
   [
-    'Do I need a complete project brief?',
-    'No. An idea, business goal, or event date is enough to start. We’ll ask the right questions and help turn it into a clear plan.',
-  ],
-  [
     'How long does a project take?',
     'Timing depends on the service and scope. Once we understand what you need, your proposal will include a realistic delivery schedule before work begins.',
-  ],
-  [
-    'Can you help me choose the right solution?',
-    'Yes. Tell us the outcome you want and your approximate budget. We’ll recommend the most practical option rather than adding features you do not need.',
   ],
   [
     'Where is Shalém Holdings based?',

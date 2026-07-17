@@ -60,19 +60,13 @@ export default function Header({ whatsappUrl }) {
         aria-label="Main navigation"
       >
         <a href="#services" aria-current={current('services')} onClick={closeMenu}>
-          Services
+          What We Do
         </a>
-        <a href="#digital-solutions" aria-current={current('digital-solutions')} onClick={closeMenu}>
-          Digital Solutions
-        </a>
-        <a href="#process" aria-current={current('process')} onClick={closeMenu}>
-          How It Works
+        <a href="#featured-work" aria-current={current('featured-work')} onClick={closeMenu}>
+          Our Work
         </a>
         <a href="#about" aria-current={current('about')} onClick={closeMenu}>
           About
-        </a>
-        <a href="#faq" aria-current={current('faq')} onClick={closeMenu}>
-          FAQ
         </a>
         <a href="#contact" aria-current={current('contact')} onClick={closeMenu}>
           Contact

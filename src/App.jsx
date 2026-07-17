@@ -5,17 +5,15 @@ import QuoteForm from './components/QuoteForm'
 import AboutSection from './components/AboutSection'
 import FaqSection from './components/FaqSection'
 import Footer from './components/Footer'
-import EngagementOptions from './components/EngagementOptions'
 import LegalPage from './components/LegalPage'
+import FeaturedWork from './components/FeaturedWork'
 import { getLegalType } from './utils/routing'
 import {
   ArrowRight,
-  Blocks,
   Camera,
   ChevronRight,
   Code2,
   MonitorPlay,
-  ShoppingBag,
   Smartphone,
   Sparkles,
 } from './components/Icons'
@@ -29,12 +27,7 @@ const divisions = [
     eyebrow: 'Build your digital future',
     title: 'Digital Solutions',
     description: 'Professional digital products designed around the way your business works and grows.',
-    items: [
-      'Business websites',
-      'E-commerce websites',
-      'Web & mobile applications',
-      'Custom systems & integrations',
-    ],
+    items: ['Websites & online stores', 'Applications & platforms', 'Custom systems & integrations'],
     cta: 'Start a project',
   },
   {
@@ -43,7 +36,7 @@ const divisions = [
     eyebrow: 'Entertainment made simple',
     title: 'Entertainment Technology',
     description: 'Flexible home entertainment technology made for everyday South African households.',
-    items: ['Shalém ConnectBox', 'TV Box solutions', 'Smart TV Box Projector', 'Product demonstrations'],
+    items: ['Shalém ConnectBox', 'TV Box solutions', 'Projectors & demonstrations'],
     cta: 'Explore products',
   },
   {
@@ -52,31 +45,8 @@ const divisions = [
     eyebrow: 'Create memorable moments',
     title: 'Events & Experiences',
     description: 'Interactive experiences for celebrations, activations, families, and growing brands.',
-    items: ['360 Photo Booth', 'Movie Night packages', 'Corporate activations', 'Branded experiences'],
+    items: ['360 Photo Booth', 'Movie Night packages', 'Corporate & branded experiences'],
     cta: 'View experiences',
-  },
-]
-
-const digitalServices = [
-  {
-    icon: Blocks,
-    title: 'Business Websites',
-    text: 'Professional, responsive websites built to establish trust and generate enquiries.',
-  },
-  {
-    icon: ShoppingBag,
-    title: 'E-commerce',
-    text: 'Clear online shopping experiences that make products easier to discover and buy.',
-  },
-  {
-    icon: Smartphone,
-    title: 'Applications',
-    text: 'Web and mobile applications designed around real customer and business needs.',
-  },
-  {
-    icon: Code2,
-    title: 'Custom Systems',
-    text: 'Purpose-built tools and integrations that improve how your business operates.',
   },
 ]
 
@@ -165,10 +135,11 @@ function App() {
           <div className="section-heading">
             <div>
               <p className="eyebrow">What we do</p>
-              <h2>Three divisions. One trusted partner.</h2>
+              <h2>Different capabilities. One standard of delivery.</h2>
             </div>
             <p>
-              Every Shalém service has a clear customer journey while remaining part of one confident brand.
+              Start with the outcome you need. We bring together the right mix of technology, practical
+              thinking, and hands-on delivery.
             </p>
           </div>
 
@@ -194,17 +165,22 @@ function App() {
           </div>
 
           <div className="division-grid">
-            {divisions.map((division) => {
+            {divisions.map((division, index) => {
               const Icon = division.icon
               const active = activeDivision === division.id
               return (
                 <article
-                  className={active ? 'division-card is-active' : 'division-card'}
+                  className={
+                    active
+                      ? `division-card division-card-${division.id} is-active`
+                      : `division-card division-card-${division.id}`
+                  }
                   id={`panel-${division.id}`}
                   role="tabpanel"
                   aria-labelledby={`tab-${division.id}`}
                   key={division.id}
                 >
+                  <span className="division-number">0{index + 1}</span>
                   <Icon className="division-icon" />
                   <p className="card-eyebrow">{division.eyebrow}</p>
                   <h3>{division.title}</h3>
@@ -231,58 +207,35 @@ function App() {
           </div>
         </section>
 
-        <section className="section digital-section" id="digital-solutions">
-          <div className="section-container">
-            <div className="section-heading">
-              <div>
-                <p className="eyebrow">Digital solutions</p>
-                <h2>Websites and applications built for real business growth.</h2>
-              </div>
-              <p>We focus on useful, professional products—not hosting packages or unnecessary extras.</p>
+        <section className="section digital-section digital-intro" id="digital-solutions">
+          <div className="section-container digital-intro-layout">
+            <div className="digital-intro-marker">
+              <p className="eyebrow">Digital solutions</p>
+              <span aria-hidden="true">01</span>
             </div>
-            <div className="service-grid">
-              {digitalServices.map(({ icon: Icon, title, text }) => (
-                <article className="service-card" key={title}>
-                  <Icon />
-                  <h3>{title}</h3>
-                  <p>{text}</p>
-                  <a
-                    href="#contact"
-                    onClick={() =>
-                      chooseService(
-                        title === 'E-commerce'
-                          ? 'E-commerce website'
-                          : title === 'Applications'
-                            ? 'Web or mobile application'
-                            : title === 'Custom Systems'
-                              ? 'Custom system or integration'
-                              : 'Business website',
-                      )
-                    }
-                  >
-                    Get a quote <ChevronRight />
-                  </a>
-                </article>
-              ))}
-            </div>
-            <div className="division-summary">
-              <div>
-                <span>Built around your goal</span>
-                <span>Responsive by default</span>
-                <span>Clear handover</span>
+            <div className="digital-intro-copy">
+              <h2>Useful digital products built around how your business actually works.</h2>
+              <p>
+                From customer-facing websites to secure internal platforms, we design and build technology
+                with a clear purpose, a practical workflow, and room to grow.
+              </p>
+              <div className="digital-capabilities" aria-label="Digital capabilities">
+                <span>Websites</span>
+                <span>Online stores</span>
+                <span>Applications</span>
+                <span>Internal systems</span>
               </div>
-              <a
-                className="button button-primary"
-                href="#contact"
-                onClick={() => chooseService('Business website')}
-              >
-                Discuss a digital project <ArrowRight />
-              </a>
+            </div>
+            <div className="digital-intro-art" aria-hidden="true">
+              <span>Build</span>
+              <span>Launch</span>
+              <span>Scale</span>
+              <i />
             </div>
           </div>
         </section>
 
-        <EngagementOptions onChooseService={chooseService} />
+        <FeaturedWork onChooseService={chooseService} />
 
         <section className="section division-detail" id="entertainment-technology">
           <div className="section-container">
@@ -306,6 +259,17 @@ function App() {
               </div>
             </div>
 
+            <figure className="division-media division-media-entertainment">
+              <img
+                src="/images/entertainment-technology-hero.jpg"
+                alt="A couple enjoying a home projector and entertainment setup"
+                width="1823"
+                height="863"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
+
             <div className="offering-grid">
               {entertainmentOfferings.map(({ icon: OfferingIcon, title, text, tag }) => (
                 <article className="offering-card" key={title}>
@@ -327,35 +291,9 @@ function App() {
               ))}
             </div>
 
-            <div className="detail-steps">
-              <div>
-                <p className="eyebrow">How to order</p>
-                <h3>From a quick conversation to the right setup.</h3>
-              </div>
-              <ol>
-                <li>
-                  <span>01</span>
-                  <p>
-                    <strong>Share your setup</strong>Tell us about your TV, space, and what you want to watch
-                    or do.
-                  </p>
-                </li>
-                <li>
-                  <span>02</span>
-                  <p>
-                    <strong>Review the option</strong>We clarify the product, availability, pricing, and what
-                    is included.
-                  </p>
-                </li>
-                <li>
-                  <span>03</span>
-                  <p>
-                    <strong>Confirm the next step</strong>Arrange collection, delivery, demonstration, or
-                    setup where available.
-                  </p>
-                </li>
-              </ol>
-            </div>
+            <p className="division-guidance">
+              Tell us about your setup, review the recommended option, and confirm delivery or installation.
+            </p>
           </div>
         </section>
 
@@ -380,6 +318,17 @@ function App() {
                 </a>
               </div>
             </div>
+
+            <figure className="division-media division-media-experiences">
+              <img
+                src="/images/events-experiences-hero.jpg"
+                alt="Guests enjoying an elegant 360 photo booth experience"
+                width="1744"
+                height="902"
+                loading="lazy"
+                decoding="async"
+              />
+            </figure>
 
             <div className="offering-grid">
               {experienceOfferings.map(({ icon: OfferingIcon, title, text, tag }) => (
@@ -408,58 +357,10 @@ function App() {
               ))}
             </div>
 
-            <div className="detail-steps">
-              <div>
-                <p className="eyebrow">How to book</p>
-                <h3>A clear plan for a smooth event day.</h3>
-              </div>
-              <ol>
-                <li>
-                  <span>01</span>
-                  <p>
-                    <strong>Share the occasion</strong>Tell us the date, location, guest count, and experience
-                    you have in mind.
-                  </p>
-                </li>
-                <li>
-                  <span>02</span>
-                  <p>
-                    <strong>Shape the package</strong>We confirm requirements, availability, inclusions,
-                    timing, and pricing.
-                  </p>
-                </li>
-                <li>
-                  <span>03</span>
-                  <p>
-                    <strong>Confirm your booking</strong>Approve the plan and complete the required booking
-                    arrangements.
-                  </p>
-                </li>
-              </ol>
-            </div>
-          </div>
-        </section>
-
-        <section className="section section-container" id="process">
-          <div className="section-heading">
-            <div>
-              <p className="eyebrow">How we work</p>
-              <h2>From your idea to the final experience.</h2>
-            </div>
-          </div>
-          <div className="process-grid">
-            {[
-              ['01', 'Tell us what you need', 'Choose a service and share your goal.'],
-              ['02', 'Get a clear proposal', 'We confirm scope, pricing, and timing.'],
-              ['03', 'We make it happen', 'We build, prepare, or arrange your service.'],
-              ['04', 'Review and enjoy', 'Approve the result and receive your solution.'],
-            ].map(([number, title, text]) => (
-              <article key={number}>
-                <span>{number}</span>
-                <h3>{title}</h3>
-                <p>{text}</p>
-              </article>
-            ))}
+            <p className="division-guidance">
+              Share your date, location, and guest count; we’ll confirm the package, availability, and booking
+              requirements.
+            </p>
           </div>
         </section>
 
@@ -475,11 +376,9 @@ function App() {
                 Share a few details and we’ll prepare the conversation before you reach WhatsApp. No
                 commitment and no complicated brief required.
               </p>
-              <div className="quote-promises" aria-label="What to expect">
-                <span>Clear next steps</span>
-                <span>Pricing based on your needs</span>
-                <span>Human response on WhatsApp</span>
-              </div>
+              <p className="quote-expectation">
+                You’ll receive clear next steps and a human response on WhatsApp.
+              </p>
             </div>
 
             <QuoteForm selectedService={selectedService} onServiceChange={setSelectedService} />

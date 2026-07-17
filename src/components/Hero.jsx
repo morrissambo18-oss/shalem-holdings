@@ -1,28 +1,4 @@
-import { ArrowRight, Code2, MapPin, MonitorPlay, Sparkles } from './Icons'
-
-const heroDivisions = [
-  {
-    href: '#digital-solutions',
-    icon: Code2,
-    label: 'Digital Solutions',
-    detail: 'Websites, apps & systems',
-    className: 'hero-division-digital',
-  },
-  {
-    href: '#entertainment-technology',
-    icon: MonitorPlay,
-    label: 'Entertainment Technology',
-    detail: 'Products for everyday enjoyment',
-    className: 'hero-division-technology',
-  },
-  {
-    href: '#events-experiences',
-    icon: Sparkles,
-    label: 'Events & Experiences',
-    detail: 'Moments people remember',
-    className: 'hero-division-experiences',
-  },
-]
+import { ArrowRight, MapPin } from './Icons'
 
 export default function Hero() {
   return (
@@ -32,57 +8,67 @@ export default function Hero() {
           <MapPin />
           <span>Diepkloof, Soweto</span>
         </div>
-        <p className="eyebrow">Technology · Entertainment · Experiences</p>
+        <p className="eyebrow">Soweto-built · Business-ready</p>
         <h1>
-          Turn your idea into something <span>people can use, enjoy, and remember.</span>
+          Technology that works. <span>Experiences that stay with people.</span>
         </h1>
         <p className="hero-lead">
-          Shalém Holdings brings digital development, entertainment technology, and event experiences together
-          through one practical, Soweto-based team.
+          Shalém builds practical digital systems, accessible entertainment technology, and memorable event
+          experiences for South African businesses and communities.
         </p>
         <div className="button-row">
-          <a className="button button-primary" href="#services">
-            Choose a service <ArrowRight />
+          <a className="button button-primary" href="#contact">
+            Start a project <ArrowRight />
           </a>
-          <a className="button button-secondary" href="#contact">
-            Request a quote
+          <a className="button button-secondary" href="#featured-work">
+            See our work
           </a>
         </div>
-        <div className="hero-notes" aria-label="Business highlights">
-          <span>Solutions shaped around you</span>
-          <span>Clear next steps</span>
-          <span>Local, connected service</span>
+        <div className="hero-proof" aria-label="Shalém business highlights">
+          <div>
+            <strong>01</strong>
+            <span>Live operations platform</span>
+          </div>
+          <div>
+            <strong>03</strong>
+            <span>Connected service divisions</span>
+          </div>
+          <div>
+            <strong>ZA</strong>
+            <span>Built with local context</span>
+          </div>
         </div>
       </div>
 
-      <div className="hero-showcase" aria-label="Explore our divisions">
-        <div className="showcase-brand">
-          <div className="showcase-logo">
-            <img src="/shalem-logo.png" alt="" />
-          </div>
+      <div className="hero-showcase">
+        <img
+          className="hero-showcase-image"
+          src="/images/digital-solutions-hero.jpg"
+          alt="A digital professional reviewing a responsive business platform"
+          width="1849"
+          height="851"
+          fetchPriority="high"
+        />
+        <div className="hero-project-label">
+          <img src="/projects/route-monitoring-logo.png" alt="Route Monitoring" />
           <div>
-            <span>One company</span>
-            <strong>Three connected divisions</strong>
+            <span>Built for Route Monitoring</span>
+            <strong>Production system</strong>
           </div>
         </div>
-        <div className="showcase-divisions">
-          {heroDivisions.map(({ href, icon: DivisionIcon, label, detail, className }, index) => (
-            <a className={`hero-division ${className}`} href={href} key={label}>
-              <span className="hero-division-number">0{index + 1}</span>
-              <span className="hero-division-icon">
-                <DivisionIcon />
-              </span>
-              <span className="hero-division-copy">
-                <strong>{label}</strong>
-                <small>{detail}</small>
-              </span>
-              <ArrowRight />
-            </a>
-          ))}
+        <div className="hero-project-card">
+          <p className="card-eyebrow">Featured build · Internal platform</p>
+          <h2>Training Management System</h2>
+          <p>Registration, QR attendance, role controls, reports, audit logs, and Excel exports.</p>
+          <div className="hero-project-tech" aria-label="Project technologies">
+            <span>Next.js</span>
+            <span>TypeScript</span>
+            <span>Supabase</span>
+          </div>
+          <a href="#featured-work">
+            Explore the case study <ArrowRight />
+          </a>
         </div>
-        <p className="showcase-caption">
-          Start with the outcome you need. We’ll help you find the right path.
-        </p>
       </div>
     </section>
   )
