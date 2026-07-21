@@ -9,10 +9,10 @@ export default function AboutSection() {
       <div className="section-container about-layout">
         <div className="about-story">
           <p className="eyebrow">About Shalém Holdings</p>
-          <h2>Local understanding. Practical ideas. One connected company.</h2>
+          <h2>A technology partner built close to the businesses we serve.</h2>
           <p>
-            From our base in Diepkloof, we build practical services around the needs, budgets, and everyday
-            realities of the people and businesses we serve.
+            From our base in Soweto, we combine business understanding, product thinking, design, and
+            engineering to build software that solves real problems and creates measurable value.
           </p>
           <div className="company-credentials" aria-label="Company registration details">
             <div>
@@ -25,7 +25,7 @@ export default function AboutSection() {
             </div>
             <div>
               <span>Registered</span>
-              <strong>1 July 2025 · In Business</strong>
+              <strong>1 July 2025 Â· In Business</strong>
             </div>
           </div>
           <a className="text-link" href="#contact">
@@ -70,28 +70,28 @@ export default function AboutSection() {
             loading="lazy"
             decoding="async"
           />
-          <figcaption>Soweto entrepreneur · Company founder</figcaption>
+          <figcaption>Soweto entrepreneur Â· Company founder</figcaption>
         </figure>
         <div className="founder-copy">
           <p className="eyebrow">Founder story</p>
           <p className="founder-name">Marc Themba Mbanyele</p>
-          <h2>Entrepreneurship rooted in Soweto and built around possibility.</h2>
+          <h2>Building technology that creates opportunity.</h2>
           <p className="founder-intro">
-            Marc Themba Mbanyele is the founder and CEO of Shalém Holdings, bringing together practical
-            technology, entertainment, and experiences under one connected company.
+            Marc Themba Mbanyele is the founder and CEO of Shalem Holdings, a technology company focused on
+            helping ambitious businesses turn ideas and operational challenges into useful software.
           </p>
           <p>
-            His entrepreneurial journey also includes founding Imbewu Yokuphila, a hiking company that brings
-            people together through outdoor experiences. Across both ventures, the focus is simple: create
-            useful opportunities, make memorable experiences possible, and build from the community outward.
+            The company is grounded in a simple belief: the right technology should make a business easier to
+            run, easier to understand, and ready to grow. Every project starts with the people who will use it
+            and the commercial outcome it needs to support.
           </p>
           <div className="founder-principle">
             <span>Guiding idea</span>
-            <p>People first. Practical solutions. Opportunity created close to home.</p>
+            <p>Understand the business. Build what matters. Improve as it grows.</p>
           </div>
           <div className="founder-roles" aria-label="Themba's roles">
-            <span>Founder & CEO · Shalém Holdings</span>
-            <span>Founder · Imbewu Yokuphila</span>
+            <span>Founder & CEO Â· Shalém Holdings</span>
+            <span>Technology entrepreneur</span>
             <span>Based in Soweto</span>
           </div>
           <a className="text-link" href="#contact">

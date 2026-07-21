@@ -85,23 +85,21 @@ export default function QuoteForm({ selectedService, onServiceChange }) {
           <option>E-commerce website</option>
           <option>Web or mobile application</option>
           <option>Custom system or integration</option>
-          <option>Entertainment technology</option>
-          <option>TV Box Solutions</option>
-          <option>Smart TV Box Projector</option>
-          <option>360 Photo Booth</option>
-          <option>Movie Night package</option>
-          <option>Corporate or branded experience</option>
+          <option>Startup MVP</option>
+          <option>Business process automation</option>
+          <option>Software modernisation</option>
+          <option>Product strategy and discovery</option>
           <option>Something else</option>
         </select>
       </div>
       <div className="form-field">
-        <label htmlFor="quote-budget">Approximate budget</label>
+        <label htmlFor="quote-budget">Approximate budget (ZAR)</label>
         <select id="quote-budget" name="budget" value={draft.budget} onChange={updateField}>
           <option value="">Not sure yet</option>
-          <option>Under R5,000</option>
-          <option>R5,000 – R15,000</option>
-          <option>R15,000 – R30,000</option>
-          <option>R30,000+</option>
+          <option>Under R 5,000</option>
+          <option>R 5,000 – R 15,000</option>
+          <option>R 15,000 – R 30,000</option>
+          <option>R 30,000+</option>
         </select>
       </div>
       <div className="form-field">
@@ -123,7 +121,7 @@ export default function QuoteForm({ selectedService, onServiceChange }) {
           minLength="10"
           value={draft.details}
           onChange={updateField}
-          placeholder="What would you like us to create, supply, or arrange?"
+          placeholder="Tell us about your business, the problem, and what success looks like."
           required
         />
       </div>

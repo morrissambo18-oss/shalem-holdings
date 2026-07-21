@@ -3953,3 +3953,60 @@ body {
     font-size: 0.72rem;
   }
 }
+
+/* Technology company positioning */
+.tech-service-grid {
+  align-items: stretch;
+}
+.tech-service-grid .offering-card {
+  display: flex;
+  flex-direction: column;
+}
+.tech-service-grid .project-capabilities {
+  margin: 24px 0;
+  flex: 1;
+}
+.tech-service-grid .project-capabilities li {
+  color: #b5b5b5;
+}
+.growth-path {
+  margin-top: clamp(48px, 7vw, 80px);
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+.growth-path article {
+  min-height: 190px;
+  padding: 30px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+.growth-path article + article {
+  border-left: 1px solid var(--line);
+}
+.growth-path span {
+  color: var(--red);
+  font-size: 0.65rem;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+}
+.growth-path h3 {
+  max-width: 250px;
+  margin: 34px 0 0;
+  font-size: clamp(1rem, 1.8vw, 1.3rem);
+  line-height: 1.45;
+}
+@media (max-width: 700px) {
+  .growth-path {
+    grid-template-columns: 1fr;
+  }
+  .growth-path article {
+    min-height: 130px;
+  }
+  .growth-path article + article {
+    border-top: 1px solid var(--line);
+    border-left: 0;
+  }
+}

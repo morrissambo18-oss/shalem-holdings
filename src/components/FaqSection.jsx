@@ -2,16 +2,16 @@ import { ArrowRight } from './Icons'
 
 const faqs = [
   [
-    'How do I get a quote?',
-    'Choose the service you need, share a short description, and continue to WhatsApp. We’ll review the details with you before confirming scope, pricing, and timing.',
+    'Do I need a complete product brief?',
+    'No. Bring us the business challenge or idea. We will help you clarify the users, priorities, scope, and best first version before development begins.',
   ],
   [
     'How long does a project take?',
-    'Timing depends on the service and scope. Once we understand what you need, your proposal will include a realistic delivery schedule before work begins.',
+    'A focused website can take a few weeks; larger applications take longer. After discovery, your proposal will include clear phases, milestones, and a realistic delivery schedule.',
   ],
   [
-    'Where is Shalém Holdings based?',
-    'We are based at 5235 Nongoma Road, Diepkloof, Soweto, Gauteng, 1864. Availability and service areas vary by division.',
+    'Do you only work with startups?',
+    'No. We help founders validate and launch new products, and we help established businesses improve operations, customer experiences, and growth with purpose-built software.',
   ],
 ]
 
@@ -23,7 +23,7 @@ export default function FaqSection({ whatsappUrl }) {
           <p className="eyebrow">Good to know</p>
           <h2>Questions before we get started?</h2>
           <p>
-            Here are the essentials. If your question is not covered, send us a WhatsApp message and we’ll
+            Here are the essentials. If your question is not covered, send us a WhatsApp message and weâ€™ll
             help.
           </p>
           <a className="text-link" href={whatsappUrl} target="_blank" rel="noreferrer">

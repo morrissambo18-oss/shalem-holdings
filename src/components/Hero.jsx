@@ -5,15 +5,15 @@ export default function Hero() {
     <section className="hero hero-minimal section-container" id="home">
       <div className="hero-copy">
         <div className="hero-kicker">
-          <span>Shalém Holdings</span>
-          <span>Diepkloof · Soweto</span>
+          <span>Shalem Holdings</span>
+          <span>Software studio · South Africa</span>
         </div>
         <h1>
-          Practical technology. <span>Memorable experiences.</span>
+          We build software. <span>Businesses grow.</span>
         </h1>
         <p className="hero-lead">
-          We help South African businesses and communities build, connect, and create through three focused
-          service divisions.
+          We partner with ambitious startups and established businesses to turn ideas, bottlenecks, and
+          opportunities into websites, applications, and custom software that move the business forward.
         </p>
         <div className="button-row">
           <a className="button button-primary" href="#contact">
@@ -23,18 +23,18 @@ export default function Hero() {
             See our work
           </a>
         </div>
-        <nav className="hero-service-strip" aria-label="Our three service divisions">
+        <nav className="hero-service-strip" aria-label="Our technology services">
           <a href="#services">
             <span>01</span>
-            <strong>Digital Solutions</strong>
+            <strong>Websites that convert</strong>
           </a>
-          <a href="#entertainment-technology">
+          <a href="#startup-partners">
             <span>02</span>
-            <strong>Entertainment Technology</strong>
+            <strong>Web & mobile applications</strong>
           </a>
-          <a href="#events-experiences">
+          <a href="#growth-partners">
             <span>03</span>
-            <strong>Events & Experiences</strong>
+            <strong>Custom business software</strong>
           </a>
         </nav>
       </div>

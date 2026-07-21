@@ -8,7 +8,7 @@ const privacySections = [
   ],
   [
     'Drafts saved on your device',
-    'To protect unfinished work from an accidental refresh, the quote form saves a draft in your browser’s local storage. The draft remains on that device and is removed after the WhatsApp handoff succeeds. You can also remove it by clearing this site’s browser data.',
+    'To protect unfinished work from an accidental refresh, the quote form saves a draft in your browserâ€™s local storage. The draft remains on that device and is removed after the WhatsApp handoff succeeds. You can also remove it by clearing this siteâ€™s browser data.',
   ],
   [
     'WhatsApp handoff',
@@ -55,7 +55,7 @@ const termsSections = [
   ],
   [
     'Responsible use',
-    'You may not misuse the website, interfere with its operation, attempt unauthorised access, or use its content in a way that infringes another person’s rights.',
+    'You may not misuse the website, interfere with its operation, attempt unauthorised access, or use its content in a way that infringes another personâ€™s rights.',
   ],
   [
     'Changes',
@@ -120,7 +120,7 @@ export default function LegalPage({ type }) {
               <br />
               Gauteng, 1864
             </p>
-            <a href="mailto:hello@shalemholdings.co.za">hello@shalemholdings.co.za</a>
+            <a href="mailto:info@shalemholdings.tech">info@shalemholdings.tech</a>
             <a href="https://wa.me/27796207928" target="_blank" rel="noreferrer">
               +27 79 620 7928
             </a>
