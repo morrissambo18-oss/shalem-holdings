@@ -25,7 +25,7 @@ export default function AboutSection() {
             </div>
             <div>
               <span>Registered</span>
-              <strong>1 July 2025 Â· In Business</strong>
+              <strong>1 July 2025 · In Business</strong>
             </div>
           </div>
           <a className="text-link" href="#contact">
@@ -70,7 +70,7 @@ export default function AboutSection() {
             loading="lazy"
             decoding="async"
           />
-          <figcaption>Soweto entrepreneur Â· Company founder</figcaption>
+          <figcaption>Soweto entrepreneur · Company founder</figcaption>
         </figure>
         <div className="founder-copy">
           <p className="eyebrow">Founder story</p>
@@ -90,7 +90,7 @@ export default function AboutSection() {
             <p>Understand the business. Build what matters. Improve as it grows.</p>
           </div>
           <div className="founder-roles" aria-label="Themba's roles">
-            <span>Founder & CEO Â· Shalém Holdings</span>
+            <span>Founder & CEO · Shalém Holdings</span>
             <span>Technology entrepreneur</span>
             <span>Based in Soweto</span>
           </div>
