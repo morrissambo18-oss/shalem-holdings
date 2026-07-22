@@ -77,7 +77,7 @@ export default function AboutSection() {
           <p className="founder-name">Marc Themba Mbanyele</p>
           <h2>Building technology that creates opportunity.</h2>
           <p className="founder-intro">
-            Marc Themba Mbanyele is the founder and CEO of Shalem Holdings, a technology company focused on
+            Marc Themba Mbanyele is the founder and CEO of Shalém Holdings, a technology company focused on
             helping ambitious businesses turn ideas and operational challenges into useful software.
           </p>
           <p>

@@ -11,7 +11,7 @@ import { getLegalType } from './utils/routing'
 import { ArrowRight, Code2, MonitorPlay, Smartphone } from './components/Icons'
 
 const whatsappUrl =
-  "https://wa.me/27796207928?text=Hi%2C%20I'm%20interested%20in%20building%20software%20with%20Shalem"
+  "https://wa.me/27796207928?text=Hi%2C%20I'm%20interested%20in%20building%20software%20with%20Shal%C3%A9m"
 
 const services = [
   {
@@ -195,7 +195,7 @@ function App() {
                 Tell us about your idea, challenge, or opportunity. We will help you identify a practical next
                 step—no complete brief required.
               </p>
-              <div className="confidence-cues" aria-label="Why contact Shalem">
+              <div className="confidence-cues" aria-label="Why contact Shalém">
                 <span>Startup and business focused</span>
                 <span>Strategy through delivery</span>
                 <span>Production software delivered</span>

@@ -8,7 +8,7 @@ const privacySections = [
   ],
   [
     'Drafts saved on your device',
-    'To protect unfinished work from an accidental refresh, the quote form saves a draft in your browserâ€™s local storage. The draft remains on that device and is removed after the WhatsApp handoff succeeds. You can also remove it by clearing this siteâ€™s browser data.',
+    'To protect unfinished work from an accidental refresh, the quote form saves a draft in your browser’s local storage. The draft remains on that device and is removed after the WhatsApp handoff succeeds. You can also remove it by clearing this site’s browser data.',
   ],
   [
     'WhatsApp handoff',
@@ -31,15 +31,15 @@ const privacySections = [
 const termsSections = [
   [
     'Website information',
-    'The website provides general information about Shalém Holdings and its divisions. Service descriptions are starting points and do not form a final quotation, guarantee, or binding offer.',
+    'The website provides general information about Shalém Holdings and its software services. Service descriptions are starting points and do not form a final quotation, guarantee, or binding offer.',
   ],
   [
     'Quotations and scope',
-    'Pricing, deliverables, responsibilities, timing, and exclusions are confirmed in a written quotation or proposal. A project or booking begins only after the required approval and payment arrangements are complete.',
+    'Pricing, deliverables, responsibilities, timing, and exclusions are confirmed in a written quotation or proposal. A project begins only after the required approval and payment arrangements are complete.',
   ],
   [
     'Availability',
-    'Products, demonstrations, event dates, delivery areas, and project start dates remain subject to availability and final confirmation.',
+    'Project start dates, delivery schedules, technologies, and third-party services remain subject to availability and final confirmation.',
   ],
   [
     'Customer responsibilities',
@@ -47,15 +47,15 @@ const termsSections = [
   ],
   [
     'Payments and cancellations',
-    'Deposits, payment milestones, cancellation terms, and refund conditions may vary by service. The terms included in the accepted quotation or booking confirmation take precedence.',
+    'Deposits, payment milestones, cancellation terms, and refund conditions may vary by project. The terms included in the accepted quotation or service agreement take precedence.',
   ],
   [
     'Intellectual property',
-    'Ownership and usage rights for designs, software, content, branding, photographs, and third-party materials are defined in the applicable proposal or agreement. Third-party products and services may have separate licence terms.',
+    'Ownership and usage rights for software, source code, designs, content, branding, data, and third-party materials are defined in the applicable proposal or agreement. Third-party products and services may have separate licence terms.',
   ],
   [
     'Responsible use',
-    'You may not misuse the website, interfere with its operation, attempt unauthorised access, or use its content in a way that infringes another personâ€™s rights.',
+    'You may not misuse the website, interfere with its operation, attempt unauthorised access, or use its content in a way that infringes another person’s rights.',
   ],
   [
     'Changes',

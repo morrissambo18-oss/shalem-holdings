@@ -23,7 +23,7 @@ export default function FaqSection({ whatsappUrl }) {
           <p className="eyebrow">Good to know</p>
           <h2>Questions before we get started?</h2>
           <p>
-            Here are the essentials. If your question is not covered, send us a WhatsApp message and weâ€™ll
+            Here are the essentials. If your question is not covered, send us a WhatsApp message and we’ll
             help.
           </p>
           <a className="text-link" href={whatsappUrl} target="_blank" rel="noreferrer">
