@@ -4,8 +4,9 @@
   background: #0d0d0d;
   font-synthesis: none;
   text-rendering: optimizeLegibility;
-  --red: #ec1313;
-  --green: #22c35d;
+  --red: #ff3b30;
+  --red-deep: #b00000;
+  --green: #16833f;
   --surface: #151515;
   --surface-soft: #111111;
   --line: #2e2e2e;
@@ -159,7 +160,7 @@ img {
   width: 17px;
 }
 .button-primary {
-  background: var(--red);
+  background: var(--red-deep);
 }
 .button-secondary {
   border-color: var(--line);
@@ -716,7 +717,7 @@ h3 {
   flex: 0 0 auto;
   border-radius: 13px;
   color: #fff;
-  background: var(--red);
+  background: var(--red-deep);
 }
 .project-icon svg {
   width: 23px;
@@ -1036,7 +1037,7 @@ h3 {
   display: grid;
   place-items: center;
   border-radius: 14px;
-  background: var(--red);
+  background: var(--red-deep);
   color: #fff;
 }
 .location-icon svg {
@@ -1694,7 +1695,7 @@ h3 {
     display: grid;
     place-items: center;
     border-radius: 10px;
-    background: var(--red);
+    background: var(--red-deep);
     color: #fff;
     text-decoration: none;
     font-size: 0.78rem;
@@ -1804,7 +1805,7 @@ h3 {
 }
 .back-to-top:hover {
   border-color: var(--red);
-  background: var(--red);
+  background: var(--red-deep);
   transform: translateY(-3px);
 }
 .back-to-top svg {
@@ -2259,7 +2260,7 @@ p {
   transform: translateY(-1px) scale(0.985);
 }
 .button-primary:hover {
-  background: #ff2020;
+  background: #c00000;
   box-shadow: 0 12px 32px rgba(236, 19, 19, 0.26);
 }
 .button-secondary:hover {
@@ -2267,7 +2268,7 @@ p {
   background: #171717;
 }
 .button-whatsapp:hover {
-  background: #28ce65;
+  background: #176b35;
   box-shadow: 0 12px 30px rgba(34, 195, 93, 0.22);
 }
 .text-link {

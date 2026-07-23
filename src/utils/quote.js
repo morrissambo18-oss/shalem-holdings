@@ -1,6 +1,6 @@
 export function buildQuoteMessage({ name, service, contact, budget, timeline, details }) {
   return [
-    'Hi Shalém Holdings, I would like a quote.',
+    'Hi Shalem Holdings, I would like a quote.',
     '',
     `Name: ${name.trim()}`,
     `Service: ${service}`,

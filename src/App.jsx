@@ -6,8 +6,9 @@ import AboutSection from './components/AboutSection'
 import FaqSection from './components/FaqSection'
 import Footer from './components/Footer'
 import LegalPage from './components/LegalPage'
+import NotFoundPage from './components/NotFoundPage'
 import FeaturedWork from './components/FeaturedWork'
-import { getLegalType } from './utils/routing'
+import { getLegalType, isHomePath } from './utils/routing'
 import { ArrowRight, Code2, MonitorPlay, Smartphone } from './components/Icons'
 
 const whatsappUrl =
@@ -113,6 +114,7 @@ function App() {
   }
 
   if (legalType === 'privacy' || legalType === 'terms') return <LegalPage type={legalType} />
+  if (!isHomePath(window.location.pathname)) return <NotFoundPage />
 
   return (
     <div className="site-shell">
@@ -195,7 +197,7 @@ function App() {
                 Tell us about your idea, challenge, or opportunity. We will help you identify a practical next
                 step—no complete brief required.
               </p>
-              <div className="confidence-cues" aria-label="Why contact Shalém">
+              <div className="confidence-cues" aria-label="Why contact Shalem">
                 <span>Startup and business focused</span>
                 <span>Strategy through delivery</span>
                 <span>Production software delivered</span>

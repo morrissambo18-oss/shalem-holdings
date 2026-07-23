@@ -5,7 +5,7 @@ export default function Hero() {
     <section className="hero hero-minimal section-container" id="home">
       <div className="hero-copy">
         <div className="hero-kicker">
-          <span>Shalém Holdings</span>
+          <span>Shalem Holdings</span>
           <span>Software studio · South Africa</span>
         </div>
         <h1>

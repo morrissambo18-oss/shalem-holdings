@@ -12,7 +12,7 @@ const privacySections = [
   ],
   [
     'WhatsApp handoff',
-    'When you continue, the website creates a WhatsApp message from your form details. Your information is not submitted to a Shalém Holdings website server first. WhatsApp processes the message according to its own privacy terms after you open and send it.',
+    'When you continue, the website creates a WhatsApp message from your form details. Your information is not submitted to a Shalem Holdings website server first. WhatsApp processes the message according to its own privacy terms after you open and send it.',
   ],
   [
     'How enquiries are used',
@@ -31,7 +31,7 @@ const privacySections = [
 const termsSections = [
   [
     'Website information',
-    'The website provides general information about Shalém Holdings and its software services. Service descriptions are starting points and do not form a final quotation, guarantee, or binding offer.',
+    'The website provides general information about Shalem Holdings and its software services. Service descriptions are starting points and do not form a final quotation, guarantee, or binding offer.',
   ],
   [
     'Quotations and scope',
@@ -71,7 +71,7 @@ export default function LegalPage({ type }) {
 
   useEffect(() => {
     const previousTitle = document.title
-    document.title = `${title} | Shalém Holdings`
+    document.title = `${title} | Shalem Holdings`
     return () => {
       document.title = previousTitle
     }
@@ -80,8 +80,8 @@ export default function LegalPage({ type }) {
   return (
     <div className="legal-shell">
       <header className="legal-header section-container">
-        <a className="brand" href={baseUrl} aria-label="Return to Shalém Holdings home">
-          <img src={`${baseUrl}shalem-logo.png`} alt="Shalém" />
+        <a className="brand" href={baseUrl} aria-label="Return to Shalem Holdings home">
+          <img src={`${baseUrl}shalem-logo.png`} alt="Shalem" />
           <span>Holdings</span>
         </a>
         <a className="text-link" href={baseUrl}>
@@ -90,14 +90,14 @@ export default function LegalPage({ type }) {
       </header>
       <main className="legal-main section-container">
         <div className="legal-title">
-          <p className="eyebrow">Shalém Holdings</p>
+          <p className="eyebrow">Shalem Holdings</p>
           <h1>{title}</h1>
           <p>Effective 17 July 2026</p>
         </div>
         <div className="legal-content">
           <p className="legal-intro">
             {isPrivacy
-              ? 'This policy explains how information is handled when you use this website or contact Shalém Holdings about a service.'
+              ? 'This policy explains how information is handled when you use this website or contact Shalem Holdings about a service.'
               : 'These terms explain the basis on which this website is provided and how general website information relates to quotations and service agreements.'}
           </p>
           {sections.map(([heading, text]) => (
@@ -107,9 +107,9 @@ export default function LegalPage({ type }) {
             </section>
           ))}
           <section className="legal-contact">
-            <h2>Contact Shalém Holdings</h2>
+            <h2>Contact Shalem Holdings</h2>
             <p>
-              Shalém Holdings (Pty) Ltd
+              Shalem Holdings (Pty) Ltd
               <br />
               Registration number: 2025/518721/07
             </p>

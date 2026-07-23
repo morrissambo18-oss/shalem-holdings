@@ -4,7 +4,7 @@ export default function Footer({ whatsappUrl }) {
   return (
     <footer className="site-footer section-container">
       <div className="footer-brand">
-        <img src={`${baseUrl}shalem-logo.png`} alt="Shalém" />
+        <img src={`${baseUrl}shalem-logo.png`} alt="Shalem" />
         <p>Software built for growth.</p>
       </div>
       <div>
@@ -33,8 +33,8 @@ export default function Footer({ whatsappUrl }) {
         <a href={`${baseUrl}?legal=privacy`}>Privacy Policy</a>
         <a href={`${baseUrl}?legal=terms`}>Website Terms</a>
       </div>
-      <p className="copyright">© 2026 Shalém Holdings. All rights reserved.</p>
-      <p className="footer-registration">Shalém Holdings (Pty) Ltd · 2025/518721/07</p>
+      <p className="copyright">© 2026 Shalem Holdings. All rights reserved.</p>
+      <p className="footer-registration">Shalem Holdings (Pty) Ltd · 2025/518721/07</p>
     </footer>
   )
 }

@@ -65,8 +65,8 @@ export default function Header({ whatsappUrl }) {
 
   return (
     <header ref={headerRef} className={scrolled ? 'site-header is-scrolled' : 'site-header'}>
-      <a className="brand" href="#home" aria-label="Shalém Holdings home" onClick={closeMenu}>
-        <img src={`${baseUrl}shalem-logo.png`} alt="Shalém" />
+      <a className="brand" href="#home" aria-label="Shalem Holdings home" onClick={closeMenu}>
+        <img src={`${baseUrl}shalem-logo.png`} alt="Shalem" />
         <span>Holdings</span>
       </a>
       <button

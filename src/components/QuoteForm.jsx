@@ -19,8 +19,12 @@ export default function QuoteForm({ selectedService, onServiceChange }) {
   const currentService = selectedService || draft.service
 
   useEffect(() => {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(draft))
-  }, [draft])
+    try {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify({ ...draft, service: currentService }))
+    } catch {
+      // Storage may be unavailable or full; the form remains usable in memory.
+    }
+  }, [draft, currentService])
 
   const updateField = (event) => {
     const { name, value } = event.target
@@ -41,7 +45,11 @@ export default function QuoteForm({ selectedService, onServiceChange }) {
 
     whatsappWindow.opener = null
     whatsappWindow.location.href = buildWhatsAppUrl({ ...draft, service: currentService })
-    localStorage.removeItem(STORAGE_KEY)
+    try {
+      localStorage.removeItem(STORAGE_KEY)
+    } catch {
+      // Ignore storage cleanup failures after the WhatsApp handoff.
+    }
     setStatus('Your WhatsApp message is ready in a new tab. Review it, then tap send.')
   }
 

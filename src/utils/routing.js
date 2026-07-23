@@ -6,3 +6,8 @@ export function getLegalType(pathname, search = '') {
   const legacyType = new URLSearchParams(search).get('legal')
   return legacyType === 'privacy' || legacyType === 'terms' ? legacyType : null
 }
+
+export function isHomePath(pathname) {
+  const normalizedPath = pathname.replace(/\/+$/, '') || '/'
+  return normalizedPath === '/'
+}

@@ -8,7 +8,7 @@ export default function AboutSection() {
     <section className="about-section" id="about">
       <div className="section-container about-layout">
         <div className="about-story">
-          <p className="eyebrow">About Shalém Holdings</p>
+          <p className="eyebrow">About Shalem Holdings</p>
           <h2>A technology partner built close to the businesses we serve.</h2>
           <p>
             From our base in Soweto, we combine business understanding, product thinking, design, and
@@ -17,7 +17,7 @@ export default function AboutSection() {
           <div className="company-credentials" aria-label="Company registration details">
             <div>
               <span>Registered company</span>
-              <strong>Shalém Holdings (Pty) Ltd</strong>
+              <strong>Shalem Holdings (Pty) Ltd</strong>
             </div>
             <div>
               <span>Registration number</span>
@@ -39,7 +39,7 @@ export default function AboutSection() {
             </div>
             <div>
               <p className="card-eyebrow">Visit or locate us</p>
-              <h3>Shalém Holdings</h3>
+              <h3>Shalem Holdings</h3>
               <p>
                 5235 Nongoma Road
                 <br />
@@ -64,7 +64,7 @@ export default function AboutSection() {
           <ProgressiveImage
             src={`${baseUrl}people/themba-founder-portrait.jpg`}
             webpSrc={`${baseUrl}people/themba-founder-portrait.webp`}
-            alt="Marc Themba Mbanyele, founder and CEO of Shalém Holdings"
+            alt="Marc Themba Mbanyele, founder and CEO of Shalem Holdings"
             width="1024"
             height="1824"
             loading="lazy"
@@ -77,7 +77,7 @@ export default function AboutSection() {
           <p className="founder-name">Marc Themba Mbanyele</p>
           <h2>Building technology that creates opportunity.</h2>
           <p className="founder-intro">
-            Marc Themba Mbanyele is the founder and CEO of Shalém Holdings, a technology company focused on
+            Marc Themba Mbanyele is the founder and CEO of Shalem Holdings, a technology company focused on
             helping ambitious businesses turn ideas and operational challenges into useful software.
           </p>
           <p>
@@ -90,7 +90,7 @@ export default function AboutSection() {
             <p>Understand the business. Build what matters. Improve as it grows.</p>
           </div>
           <div className="founder-roles" aria-label="Themba's roles">
-            <span>Founder & CEO · Shalém Holdings</span>
+            <span>Founder & CEO · Shalem Holdings</span>
             <span>Technology entrepreneur</span>
             <span>Based in Soweto</span>
           </div>
